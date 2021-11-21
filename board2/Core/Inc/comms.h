@@ -1,33 +1,21 @@
 /*
  * comms.h
  *
- *  Created on: Apr 20, 2021
- *      Author: guifre
+ *  Created on: Nov 17, 2021
+ *      Author: Daniel Herencia Ruiz
  */
 
 #ifndef INC_COMMS_H_
 #define INC_COMMS_H_
 
-//#include "main.h"
-#include "definitions.h"
+void configuration(void);
 
-/*Telecommand received from comms
-unpacking() -> redirect to the function we need to execute*/
-void telecommand(void);
+void tx_function(void);
 
-/*send the housekeeping (system_state) to the GS*/
-void sendtelemetry();
+void rx_function(void);
 
-/*Includes the packing of the data and telemetry(SPG4) we want to transmit to GS*/
-void transmitpck();
+void packaging(void);
 
-/*Includes the unpacking and executes the telecomands received from GS*/
-void receivepck(void);
 
-/*The size of each packet is 59Bytes (51Bytes of data)*/
-/*Each packet must contain the following fields: ([telecomand],[size of data], [data])*/
-void packing();
-void unpacking();
 
 #endif /* INC_COMMS_H_ */
-
