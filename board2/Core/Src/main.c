@@ -33,6 +33,32 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+
+
+/*This are COMMS definitions*/
+#define RF_FREQUENCY 868000000             // 868 MHz
+#define TX_OUTPUT_POWER 22                 // 22 dBm
+#define LORA_SPREADING_FACTOR 9            // [0x09 --> SF9]
+#define LORA_BANDWIDTH 4                   // [0x04 --> 125 kHz]
+#define LORA_CODING_RATE 1                 // [0x01 --> CR=4/5]
+#define LORA_LOW_DATA_RATE_OPTIMIZE 0      // [0x00 --> LowDataRateOptimize OFF]
+#define PREAMBLE LENGTH 8                  // CSS modulations usually have 8 preamble symbols
+#define HEADER_TYPE 0                      // [0 --> Explicit header]
+#define PAYLOAD_LENGTH 38                  // [38 bytes of payload information]
+#define CRC_TYPE 0                         // [0 --> CRC OFF]
+#define INVERT_IQ 0                        // [0 --> Standard IQ setup]
+// Check CAD
+// BufferBaseAddress
+// LoRaSymbNumTimeout
+#define TX_TIMEOUT_VALUE 13900             // In ms, maximum total time to send 40 packets and receive the ACK
+#define BUFFER_SIZE 59                     //Payload size, in bytes.
+/*End COMMS definitions*/
+
+
+
+
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -50,6 +76,21 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 HCD_HandleTypeDef hhcd_USB_OTG_FS;
+
+
+/*COMMS variables*/
+uint16_t BufferSize = BUFFER_SIZE;
+bool PacketReceived = false;
+bool RxTimeoutTimerIrqFlag = false;
+uint16_t RxCorrectCnt = 0;
+uint16_t RxErrorCnt = 0;
+uint16_t RxTimeoutCnt = 0;
+uint16_t TxTimeoutCnt = 0;
+/*END COMMS variables*/
+
+
+
+
 
 /* USER CODE BEGIN PV */
 
