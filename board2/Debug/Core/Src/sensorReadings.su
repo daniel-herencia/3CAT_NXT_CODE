@@ -1,0 +1,4 @@
+sensorReadings.c:11:6:acquireTemp	64	static
+sensorReadings.c:63:6:acquireVoltage	24	static
+sensorReadings.c:68:6:acquireCurrents	16	static
+sensorReadings.c:72:6:sensorReadings	16	static

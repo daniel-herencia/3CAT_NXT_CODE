@@ -1,0 +1,13 @@
+configuration.c:16:5:checkbatteries	16	static
+configuration.c:26:6:detumble	4	static
+configuration.c:30:6:deployment	16	static
+configuration.c:37:6:deploymentRF	4	static
+configuration.c:41:6:payloadconfig	56	static
+configuration.c:63:6:check_position	4	static
+configuration.c:71:6:init	16	static
+configuration.c:82:6:initsensors	32	static
+configuration.c:108:6:system_state	16	static
+configuration.c:118:6:checktemperature	32	static
+configuration.c:165:6:heater	16	static
+configuration.c:169:6:checkmemory	4	static
+configuration.c:173:6:writeFlash	4	static
