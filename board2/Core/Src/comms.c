@@ -1,6 +1,6 @@
+#include <radio.h>
+#include <sx126x.h>
 #include "comms.h"
-//#include "sx126x.h"
-//#include "radio.h"
 //#include "sx126x-hal.h"
 
 void configuration(void){

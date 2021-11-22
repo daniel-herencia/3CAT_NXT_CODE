@@ -76,8 +76,8 @@ all: main-build
 main-build: board2.elf secondary-outputs
 
 # Tool invocations
-board2.elf: $(OBJS) $(USER_OBJS) C:\Users\psimo\STM32CubeIDE\workspace_1.7.0\board2\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "board2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\psimo\STM32CubeIDE\workspace_1.7.0\board2\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="board2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+board2.elf: $(OBJS) $(USER_OBJS) D:\TELECOS\4A\PAE\3CAT_NXT_CODE\board2\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "board2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\TELECOS\4A\PAE\3CAT_NXT_CODE\board2\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="board2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

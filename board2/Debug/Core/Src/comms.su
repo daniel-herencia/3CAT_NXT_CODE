@@ -1,6 +1,0 @@
-comms.c:10:6:telecommand	4	static
-comms.c:17:6:sendtelemetry	4	static
-comms.c:26:6:transmitpck	4	static
-comms.c:33:6:receivepck	4	static
-comms.c:40:6:packing	4	static
-comms.c:44:6:unpacking	4	static

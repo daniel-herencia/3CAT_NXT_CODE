@@ -1,0 +1,6 @@
+gpio.c:30:6:GpioInit	32	static
+gpio.c:45:6:GpioSetInterrupt	24	static
+gpio.c:60:6:GpioRemoveInterrupt	16	static
+gpio.c:75:6:GpioWrite	16	static
+gpio.c:90:6:GpioToggle	16	static
+gpio.c:105:10:GpioRead	16	static
