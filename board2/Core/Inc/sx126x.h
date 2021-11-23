@@ -30,7 +30,10 @@
 #include "delay.h"
 #include "gpio.h"
 #include "spi.h"
-#include "uart.h"
+//#include "uart.h"
+#include "stm32f4xx_hal.h"
+
+
 
 
 #define SX1261                                      1

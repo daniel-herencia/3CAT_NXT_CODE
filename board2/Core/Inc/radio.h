@@ -26,6 +26,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <inttypes.h>
+#include "stm32f4xx_hal.h"
+
 
 /*!
  * Radio driver supported modems

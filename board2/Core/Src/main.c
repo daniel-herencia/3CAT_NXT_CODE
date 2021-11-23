@@ -187,7 +187,7 @@ int main(void)
 	    case COMMS:	// This might refer ONLY refer to TX!!!
 	        /* check if the picture or spectrogram has to be sent and send it if needed */
 	    	if(!system_state(&hi2c1)) currentState = CONTINGENCY;
-	    	else if(comms_state) telecommand(); 	        /* function that receives orders from "COMMS" */
+	    	else if(comms_state) /*telecommand()*/; 	        /* function that receives orders from "COMMS" */
 	    	//else if(comms_timer_state) sendtelemetry(); /* loop that sends the telemetry data to "COMMS" */
 	    	comms_state = false;
 	    	comms_timer_state = false;

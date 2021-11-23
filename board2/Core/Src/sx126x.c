@@ -32,6 +32,7 @@
 #include <stdbool.h>
 
 #include <gpio.h>
+#include <spi.h>
 
 //#include "sx126x-board.h"
 
