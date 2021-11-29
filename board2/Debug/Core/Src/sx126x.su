@@ -45,3 +45,4 @@ sx126x.c:673:6:SX126xGetPacketStatus	24	static
 sx126x.c:706:14:SX126xGetDeviceErrors	16	static
 sx126x.c:714:6:SX126xClearDeviceErrors	16	static
 sx126x.c:720:6:SX126xClearIrqStatus	24	static
+sx126x.c:729:6:SX126xConfigureCad	24	static

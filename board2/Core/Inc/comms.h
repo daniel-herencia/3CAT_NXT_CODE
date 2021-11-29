@@ -8,6 +8,7 @@
 #ifndef INC_COMMS_H_
 #define INC_COMMS_H_
 
+
 /*This are COMMS definitions*/
 #define RF_FREQUENCY 						868000000  	// 868 MHz
 #define TX_OUTPUT_POWER 					22          // 22 dBm
@@ -24,7 +25,7 @@
 // BufferBaseAddress
 // LoRaSymbNumTimeout
 #define TX_TIMEOUT_VALUE 13900             // In ms, maximum total time to send 40 packets and receive the ACK
-#define BUFFER_SIZE 59                     //Payload size, in bytes.
+//#define BUFFER_SIZE 59                     //Payload size, in bytes.
 /*End COMMS definitions*/
 
 
@@ -32,6 +33,27 @@
 #define LORA_FIX_LENGTH_PAYLOAD_ON         	false
 #define LORA_FIX_LENGTH_PAYLOAD_LEN         38			//???????????
 #define LORA_IQ_INVERSION_ON  				false		//?????
+
+
+#define RX_TIMEOUT_VALUE                 	0			//IF NEEDED
+#define BUFFER_SIZE                         38 			// Define the payload size here
+
+
+/* MAYBE IT COULD BE INTERESTING TO USE A STATE MACHINE IN COMMS*/
+/* OR MAYBE THIS SHOULD BE HANDLED IN MAIN, OR COMMS IS A SINGLE FUNCTION WITH STATES */
+/*
+typedef enum
+{
+    LOWPOWER,
+    RX,
+    RX_TIMEOUT,
+    RX_ERROR,
+    TX,
+    TX_TIMEOUT,
+    START_CAD,
+}States_t;
+*/
+
 
 
 

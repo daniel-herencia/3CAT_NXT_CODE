@@ -1,5 +1,5 @@
-Core/Src/comms.o: ../Core/Src/comms.c ../Core/Inc/radio.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+Core/Src/comms.o: ../Core/Src/comms.c ../Core/Inc/comms.h \
+ ../Core/Inc/radio.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -34,7 +34,9 @@ Core/Src/comms.o: ../Core/Src/comms.c ../Core/Inc/radio.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
  ../Core/Inc/sx126x.h ../Core/Inc/timer.h ../Core/Inc/delay.h \
- ../Core/Inc/gpio.h ../Core/Inc/spi.h ../Core/Inc/comms.h
+ ../Core/Inc/gpio.h ../Core/Inc/spi.h
+
+../Core/Inc/comms.h:
 
 ../Core/Inc/radio.h:
 
@@ -115,5 +117,3 @@ Core/Src/comms.o: ../Core/Src/comms.c ../Core/Inc/radio.h \
 ../Core/Inc/gpio.h:
 
 ../Core/Inc/spi.h:
-
-../Core/Inc/comms.h:

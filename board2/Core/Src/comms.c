@@ -1,9 +1,25 @@
+#include <comms.h>
+
 #include <radio.h>
 #include <sx126x.h>
-#include "comms.h"
+
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <inttypes.h>
+#include <math.h>
+
 //#include "sx126x-hal.h"
 
-static RadioEvents_t RadioEvents;
+static RadioEvents_t RadioEvents;	//SHOULD THIS BE IN MAIN??? IS TO HANDLE IRQ???
+
+//HOW TO USE GLOBAL VARIABLE NOT-STATIC???? => IT DO NOT COMPILE
+static uint16_t BufferSize = BUFFER_SIZE;
+//uint8_t Buffer[BUFFER_SIZE];
+//bool PacketReceived = false;
+//bool RxTimeoutTimerIrqFlag = false;
 
 void configuration(void){
 	/*
@@ -24,7 +40,7 @@ void configuration(void){
 	//PLEASE, revise the following line (obtained from exampled web)
 	SX126xSetDioIrqParams(IRQ_CAD_DONE | IRQ_CAD_ACTIVITY_DETECTED, IRQ_CAD_DONE | IRQ_CAD_ACTIVITY_DETECTED, IRQ_RADIO_NONE, IRQ_RADIO_NONE ); //ix) Set
 	*/
-	Radio.Init( &RadioEvents );
+	Radio.Init( &RadioEvents );	//SHOULD THIS BE IN MAIN???
 
 	Radio.SetChannel( RF_FREQUENCY );
 
@@ -33,12 +49,16 @@ void configuration(void){
 								   LORA_PREAMBLE_LENGTH, LORA_FIX_LENGTH_PAYLOAD_ON,
 								   true, 0, 0, LORA_IQ_INVERSION_ON, TX_TIMEOUT_VALUE );	//In the original example it was 3000
 
+
+	//SHALL WE CARE ABOUT THE RX TIMEOUT VALUE??? IF YES, CHANGE IT IN SetRx FUNCTION
 	Radio.SetRxConfig( MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR,
 								   LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
 								   LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
 								   0, true, 0, 0, LORA_IQ_INVERSION_ON, true );
 
 };
+
+//CAD: CHANNEL ACTIVITY DETECTED
 
 void tx_function(void){
 	//configuration();

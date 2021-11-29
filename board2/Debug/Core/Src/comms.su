@@ -1,4 +1,4 @@
-comms.c:8:6:configuration	56	static
-comms.c:43:6:tx_function	8	static
-comms.c:49:6:rx_function	4	static
-comms.c:54:6:packaging	4	static
+comms.c:24:6:configuration	56	static
+comms.c:63:6:tx_function	8	static
+comms.c:69:6:rx_function	4	static
+comms.c:74:6:packaging	4	static

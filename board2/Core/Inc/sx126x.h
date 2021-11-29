@@ -1121,4 +1121,6 @@ void SX126xClearDeviceErrors( void );
  */
 void SX126xClearIrqStatus( uint16_t irq );
 
+void SX126xConfigureCad( RadioLoRaCadSymbols_t cadSymbolNum, uint8_t cadDetPeak, uint8_t cadDetMin , uint32_t cadTimeout);
+
 #endif // __SX126x_H__
