@@ -3,7 +3,10 @@
 #include "comms.h"
 //#include "sx126x-hal.h"
 
+static RadioEvents_t RadioEvents;
+
 void configuration(void){
+	/*
 	//i) Initialize power in the antenna and the transceiver => OBC??????????????
 	if( SX126xGetOperatingMode() != MODE_STDBY_RC ) //ii) If we are not in standby, change state to standby
 	{
@@ -15,15 +18,32 @@ void configuration(void){
 	//SX126xSetPaSelect(); dins de SetTxParams hi ha un if que depen d'aixo, pero no trobo aquesta funció a cap lloc
 	SX126xSetTxParams(TX_OUTPUT_POWER, RADIO_RAMP_200_US); //v) Set SX1262 TX parameters (power, ramp time) -- RAMP TIME he posat el que hi ha a radio.c, no tinc ni idea de si cal canviar-ho
 	SX126xSetBufferBaseAddress(0x00,0x88); //vi) Set buffer address (Tx and Rx)
-	//JURARIA QUE A PARTIR D'AQUI YA ANEM A LES tx_function, rx_function, etc.
+	SX126xSetModulationParams(); //vii) Set modulation parameters
+	SX126xSetPacketParams(); //viii) Set packet parameters
+
+	//PLEASE, revise the following line (obtained from exampled web)
+	SX126xSetDioIrqParams(IRQ_CAD_DONE | IRQ_CAD_ACTIVITY_DETECTED, IRQ_CAD_DONE | IRQ_CAD_ACTIVITY_DETECTED, IRQ_RADIO_NONE, IRQ_RADIO_NONE ); //ix) Set
+	*/
+	Radio.Init( &RadioEvents );
+
+	Radio.SetChannel( RF_FREQUENCY );
+
+	Radio.SetTxConfig( MODEM_LORA, TX_OUTPUT_POWER, 0, LORA_BANDWIDTH,
+								   LORA_SPREADING_FACTOR, LORA_CODINGRATE,
+								   LORA_PREAMBLE_LENGTH, LORA_FIX_LENGTH_PAYLOAD_ON,
+								   true, 0, 0, LORA_IQ_INVERSION_ON, TX_TIMEOUT_VALUE );	//In the original example it was 3000
+
+	Radio.SetRxConfig( MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR,
+								   LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
+								   LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
+								   0, true, 0, 0, LORA_IQ_INVERSION_ON, true );
+
 };
 
 void tx_function(void){
-	configuration();
+	//configuration();
 	packaging(); //Start the TX by packaging all the data that will be transmitted
 	//SX126xSetPayload(); //Aquesta fa el writebuffer, sha de posar direccions com a la pag 48 del datasheet
-	//SX126xSetModulationParams(); //passa dins de (...) un struct?? Ni idea de com va aixo
-	//SX126xSetPacketParams(); //Mateix problema que a dalt, tocara investigar
 };
 
 void rx_function(void){
