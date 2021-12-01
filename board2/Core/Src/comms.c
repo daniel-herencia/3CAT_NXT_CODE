@@ -16,7 +16,14 @@
 static RadioEvents_t RadioEvents;	//SHOULD THIS BE IN MAIN??? IS TO HANDLE IRQ???
 
 //HOW TO USE GLOBAL VARIABLE NOT-STATIC???? => IT DO NOT COMPILE
-static uint16_t BufferSize = BUFFER_SIZE;
+uint32_t air_time;
+uint8_t Buffer[BUFFER_SIZE];
+//uint64_t BufferWindow[WINDOW_SIZE];	//If there is RAM memory problems => delete
+uint8_t count_packet;	//To count how many packets have been sent (maximum WINDOW_SIZE)
+uint8_t count_window;	//To count the window number
+uint64_t ack;	//Information rx in the ACK (FER DESPLAÇAMENTS DSBM)
+bool nack;	//True when retransmition necessary
+
 //uint8_t Buffer[BUFFER_SIZE];
 //bool PacketReceived = false;
 //bool RxTimeoutTimerIrqFlag = false;
@@ -56,6 +63,16 @@ void configuration(void){
 								   LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
 								   0, true, 0, 0, LORA_IQ_INVERSION_ON, true );
 
+
+
+	//Air time calculus
+	air_time = Radio.TimeOnAir( MODEM_LORA , PACKET_LENGTH );
+
+	count_packet = 0;
+	count_window = 0;
+	ack = 0xFFFFFFFFFFFFFFFF;
+	nack = false;
+
 };
 
 //CAD: CHANNEL ACTIVITY DETECTED
@@ -64,15 +81,22 @@ void tx_function(void){
 	//configuration();
 	packaging(); //Start the TX by packaging all the data that will be transmitted
 	//SX126xSetPayload(); //Aquesta fa el writebuffer, sha de posar direccions com a la pag 48 del datasheet
+
+    Radio.Send( Buffer, BUFFER_SIZE );
+
 };
 
 void rx_function(void){
-
+	Radio.Rx( RX_TIMEOUT_VALUE );
 
 };
 
 void packaging(void){
+	//NACK packets at the beginnig of the next window
 
+	//i) If nack = true	=>
+
+	//ii)
 
 };
 

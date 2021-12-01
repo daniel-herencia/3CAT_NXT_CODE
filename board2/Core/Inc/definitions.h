@@ -27,7 +27,7 @@
 #define TAKEPHOTO 			02	/*Might rotate the PQ into the right position +
 								wait until it is in the position where the picture is wanted to be taken.*/
 #define TAKERF  			03
-#define RESET2  				04	/*The PQ might take a reset*/
+#define RESET2  			04	/*The PQ might take a reset*/
 #define SPECIFICTELEMETRY  	05
 #define STOPSENDINGDATA  	06
 #define ACKDATA  			07	/*It is received when all the data is received correctly*/

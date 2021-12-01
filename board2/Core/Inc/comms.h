@@ -18,16 +18,17 @@
 //#define LORA_LOW_DATA_RATE_OPTIMIZE 		0      		// [0x00 --> LowDataRateOptimize OFF]
 #define LORA_PREAMBLE_LENGTH				8           // CSS modulations usually have 8 preamble symbols
 //#define HEADER_TYPE 						0           // [0 --> Explicit header]
-//#define PAYLOAD_LENGTH 						38          // [38 bytes of payload information]
+//#define PAYLOAD_LENGTH 					38          // [38 bytes of payload information]
 //#define CRC_TYPE 							0           // [0 --> CRC OFF]	/*ARE YOU SURE??? MAYBE 4/5 0x01*/
-//#define INVERT_IQ 							0           // [0 --> Standard IQ setup]
+//#define INVERT_IQ 						0           // [0 --> Standard IQ setup]
 // Check CAD
 // BufferBaseAddress
 // LoRaSymbNumTimeout
-#define TX_TIMEOUT_VALUE 13900             // In ms, maximum total time to send 40 packets and receive the ACK
-//#define BUFFER_SIZE 59                     //Payload size, in bytes.
+#define TX_TIMEOUT_VALUE 					340         // Air time Tx
+#define PACKET_LENGTH 						59          // Packet Size
 /*End COMMS definitions*/
 
+#define TX_WINDOW_TIMEOUT					13900
 
 #define LORA_SYMBOL_TIMEOUT               	0       	// ??????????
 #define LORA_FIX_LENGTH_PAYLOAD_ON         	false
@@ -37,6 +38,7 @@
 
 #define RX_TIMEOUT_VALUE                 	0			//IF NEEDED
 #define BUFFER_SIZE                         38 			// Define the payload size here
+#define WINDOW_SIZE							40
 
 
 /* MAYBE IT COULD BE INTERESTING TO USE A STATE MACHINE IN COMMS*/
