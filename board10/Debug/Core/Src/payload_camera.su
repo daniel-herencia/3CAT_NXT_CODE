@@ -1,0 +1,5 @@
+payload_camera.c:21:9:readResponse	24	static
+payload_camera.c:44:6:runCommand	32	static
+payload_camera.c:81:6:getFrameLength	32	static
+payload_camera.c:97:6:retrieveImage	72	dynamic
+payload_camera.c:138:5:min	16	static

@@ -1,3 +1,0 @@
-payload.c:12:6:payloadinit	8	static
-payload.c:16:6:receive	16	static
-payload.c:21:6:takePhoto	20128	dynamic

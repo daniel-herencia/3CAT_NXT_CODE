@@ -1,8 +1,0 @@
-flash.c:25:17:GetSector	24	static
-flash.c:137:6:float2Bytes	24	static
-flash.c:152:7:Bytes2float	32	static
-flash.c:168:10:Flash_Write_Data	48	static
-flash.c:227:6:Flash_Read_Data	24	static
-flash.c:239:6:Convert_To_Str	32	static
-flash.c:250:6:Flash_Write_NUM	16	static
-flash.c:259:7:Flash_Read_NUM	24	static
